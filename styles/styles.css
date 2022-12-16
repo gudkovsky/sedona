@@ -214,6 +214,7 @@ body {
 
 
 
+
 .card-1 .adv-head-big::after {
     display: block;
     content: "— №1 —";
@@ -1150,6 +1151,7 @@ background-color: #E6E6E6;
     text-transform: uppercase;
 }
 
+
 .advantage-descriprion {
     font-size: 18px;
     line-height: 21px;
@@ -1205,7 +1207,9 @@ background-color: #E6E6E6;
 
 .index-footer-info {
     background-image: url("../images/decoration/footer-bg-blur.jpg");
+    background-repeat: no-repeat;
     background-color: #68A2CA;
+    background-size: cover;
     color:rgb(255, 255, 255);
     text-align: center;
 
