@@ -14,6 +14,7 @@
             <div class="nav-logo">
                 <a href="index.html">
                 <img src="images/brand.svg" style="width: 140px; height: 70px;" alt="логотип сайта" class="mail-logo">
+
                 </a>
             </div>
 
@@ -51,7 +52,7 @@
 
             <a class="count-link" href="#"><span class="additional-menu-count">12</span></a>
 
-            <a href="#" class="additional-menu-button brown-button">Хочу сюда!</a>
+            <a href="#" class="additional-menu-button brown-button" id="modal-button">Хочу сюда!</a>
 
         </div>
 
@@ -208,10 +209,10 @@
             </div>
             </section>
     </footer>
-    <div class="modal-container modal-hide">
-        <div class="modal-window">
+    <div class="modal-container modal-hide" id="modal">
+        <div class="modal-window" id="modalWindow">
             <h2 class="modal-heading">Поиск гостиницы в Седоне</h2>
-            <button type="button" class="modal-close-button">
+            <button type="button" class="modal-close-button" id="modalClose">
                 <span class="visually-hidden">Закрыть</span>
             </button>
 
@@ -283,5 +284,35 @@
 
         </div>
     </div>
+    <script>
+      let modalButton = document.getElementById('modal-button')
+      let modal = document.getElementById('modal')
+      let modalClose = document.getElementById('modalClose')
+      let modalWindow = document.getElementById('modalWindow')
+
+      modalButton.onclick = function() {
+        if (modal.classList.contains('modal-hide')) {
+          modal.classList.remove('modal-hide')
+          modal.classList.add('modal-open')
+        } else {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
+
+      modalClose.onclick = function () {
+        modal.classList.remove('modal-open')
+        modal.classList.add('modal-hide')
+      }
+
+      modal.onclick = function (e) {
+        if (modal.classList.contains('modal-open') && e.target !== modalWindow) {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
+
+
+    </script>
 </body>
 </html>
