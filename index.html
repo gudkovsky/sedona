@@ -5,6 +5,7 @@
     <title>Ваше путешествие в Седону</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/outline.css">
+    <link rel="icon" type="icon/png" href="favicon.png">
 </head>
 <body>
 
@@ -64,8 +65,9 @@
         </div>
         <section class="welcome-section" id="about-id">
             <h2 class="visually-hidden">Что такое Седона?</h2>
-            <p class="text-head welcome-section-head">Седона — небольшой городок в Аризоне, заслуживающий большего!</p>
+            <a class="welcome-section__advisor-link" target="_blank" href="https://www.tripadvisor.ru/Tourism-g31352-Sedona_Arizona-Vacations.html"><p class="text-head welcome-section-head" title="Переходите по ссылке, чтобы узнать больше">Седона — небольшой городок в Аризоне, заслуживающий большего!</p>
             <p class="text-description welcome-section-description">Рассмотрим 5 причин, по которым Седона круче, чем Гранд-Каньон!</p>
+          </a>
         </section>
 <!-- Блок преимуществ с описанием -->
         <section class="advantages">
@@ -126,7 +128,7 @@
             <span class="text-head index-interest-head">Заинтересовались?</span>
             <P class="text-description index-interest-description">Укажите предполагаемые даты поездки,<br>и мы покажем вам лучшие предложения гостиниц в Седоне
                 </P>
-            <button type="button" class="button brown-button index-interest-button">Поиск гостиницы в Седоне</button>
+            <button type="button" class="button brown-button index-interest-button" id="interestButton">Поиск гостиницы в Седоне</button>
         </section>
 
 
@@ -289,6 +291,7 @@
       let modal = document.getElementById('modal')
       let modalClose = document.getElementById('modalClose')
       let modalWindow = document.getElementById('modalWindow')
+      let interestButton = document.getElementById('interestButton')
 
       modalButton.onclick = function() {
         if (modal.classList.contains('modal-hide')) {
@@ -306,12 +309,21 @@
       }
 
       modal.onclick = function (e) {
-        if (modal.classList.contains('modal-open') && e.target !== modalWindow) {
+        if (modal.classList.contains('modal-open') && e.target == modal) {
           modal.classList.remove('modal-open')
           modal.classList.add('modal-hide')
         }
       }
 
+      interestButton.onclick = function() {
+        if (modal.classList.contains('modal-hide')) {
+          modal.classList.remove('modal-hide')
+          modal.classList.add('modal-open')
+        } else {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
 
     </script>
 </body>

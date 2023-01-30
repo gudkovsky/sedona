@@ -6,6 +6,7 @@
         <title>Гостиницы Седоны</title>
         <link rel="stylesheet" href="styles/styles.css">
         <!-- <link rel="stylesheet" href="styles/outline.css"> -->
+        <link rel="icon" type="icon/png" href="favicon.png">
     </head>
 
 <body>
@@ -51,7 +52,7 @@
                     </a>
                     <a class="count-link" href="#"><span class="additional-menu-count">12</span></a>
 
-                    <a href="#" class="additional-menu-button brown-button">Хочу сюда!</a>
+                    <a href="#" class="additional-menu-button brown-button" id="modal-button">Хочу сюда!</a>
 
                 </div>
 
@@ -438,6 +439,120 @@
             </div>
             </section>
     </footer>
+    <div class="modal-container modal-hide" id="modal">
+      <div class="modal-window" id="modalWindow">
+          <h2 class="modal-heading">Поиск гостиницы в Седоне</h2>
+          <button type="button" class="modal-close-button" id="modalClose">
+              <span class="visually-hidden">Закрыть</span>
+          </button>
 
+          <form action="https://echo.htmlacademy.ru" method="post" class="modal-form">
+                  <div class="filter-date-in">
+                      <label class="date-in modal-label" for="date-in">Дата заезда:</label>
+
+                      <input class="calendar-in date-form" type="text" name="date-in" id="date-in" value="27 апреля 2020" placeholder="Укажите дату">
+
+                      <span class="date-message date-message-error">
+                          Мы не можем отправить вас в прошлое.
+                      </span>
+                  </div>
+
+                  <div class="filter-date-out">
+                      <label class="date-out  modal-label" for="date-out">Дата выезда:</label>
+
+                      <input class="calendar-out date-form" type="text" name="date-out" id="date-out" value="1 сентября 2021" placeholder="Укажите дату">
+
+                      <span class="date-message">На эти даты есть свободные номера. Пока есть.</span>
+                  </div>
+
+                  <div class="filter-adults">
+                      <label class="adults-label modal-label" for="adults-number">Взрослые:</label>
+
+                      <div class="adults-count count-field">
+                          <button type="button" class="adults-count-minus modal-form-number-minus modal-count-button">
+                              <span class="visually-hidden">Уменьшить количество</span>
+                          </button>
+
+                          <input class="adults-number modal-form-number" type="number" name="adults-number" id="adults-number" value="2" min="1" step="1">
+
+                          <button type="button" class="adults-count-plus modal-form-number-plus modal-count-button">
+                              <span class="visually-hidden">Увеличить количество</span>
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="filter-kids">
+                      <div class="kids-field">
+                          <label class="kids-label modal-label" for="kids">Дети:</label>
+
+                          <span class="kids-info-icon">
+                              <span class="kids-info-text">
+                                  Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.
+                              </span>
+                          </span>
+                      </div>
+
+                      <div class="kids-count count-field">
+                          <button type="button" class="kids-count-minus modal-form-number-minus modal-count-button">
+                              <span class="visually-hidden">Уменьшить количество</span>
+                          </button>
+
+                          <input class="kids-number modal-form-number" type="number" name="kids-number" id="kids" value="1" min="0" step="1">
+
+                          <button type="button" class="kids-count-plus modal-form-number-plus modal-count-button">
+                              <span class="visually-hidden">
+                                  Увеличить количество
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+
+              <button class="modal-form-button button blue-button" type="submit">
+                  Найти
+              </button>
+          </form>
+
+      </div>
+  </div>
+    <script>
+      let modalButton = document.getElementById('modal-button')
+      let modal = document.getElementById('modal')
+      let modalClose = document.getElementById('modalClose')
+      let modalWindow = document.getElementById('modalWindow')
+      let interestButton = document.getElementById('interestButton')
+
+      modalButton.onclick = function() {
+        if (modal.classList.contains('modal-hide')) {
+          modal.classList.remove('modal-hide')
+          modal.classList.add('modal-open')
+        } else {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
+
+      modalClose.onclick = function () {
+        modal.classList.remove('modal-open')
+        modal.classList.add('modal-hide')
+      }
+
+      modal.onclick = function (e) {
+        if (modal.classList.contains('modal-open') && e.target == modal) {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
+
+      interestButton.onclick = function() {
+        if (modal.classList.contains('modal-hide')) {
+          modal.classList.remove('modal-hide')
+          modal.classList.add('modal-open')
+        } else {
+          modal.classList.remove('modal-open')
+          modal.classList.add('modal-hide')
+        }
+      }
+
+    </script>
 </body>
 </html>

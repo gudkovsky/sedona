@@ -197,6 +197,64 @@ body {
     margin-bottom: 31px;
 }
 
+.welcome-section__advisor-link {
+  text-decoration: none;
+  color: black;
+  position: relative;
+
+}
+
+.welcome-section__advisor-link:hover {
+  color:rgb(31, 31, 31);
+  transition: .3s;
+}
+
+.welcome-section__advisor-link::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: -400px;
+  border-radius: 10px;
+  background-image: url(../images/icons/advisor.png);
+  background-size: contain;
+  z-index: -2;
+  opacity: 0;
+  transition: .2s ease-in-out;
+
+  animation: strafe infinite 1s;
+  animation-delay: 2s;
+}
+
+@keyframes strafe {
+  0% {
+    transform: rotate(0deg)
+  }
+  40% {
+    transform: rotate(-5deg)
+  }
+  60% {
+    transform: rotate(5deg)
+  }
+  80% {
+    transform: rotate(-5deg)
+  }
+  100% {
+    transform: rotate(5deg)
+  }
+}
+
+.welcome-section__advisor-link:hover::before {
+  opacity: 1;
+  transition: .3s linear;
+  left: -100px;
+
+
+}
+
+
+
 .welcome-section-description {
     margin: 0;
 }
@@ -762,15 +820,20 @@ outline: none;
     border: none;
     text-align: center;
     border-radius: 4px;
+
 }
 
 .blue-button {
     background-color: #83B3D3;
+    transition: .1s;
+    transition-property: background-color;
 }
 
 
 .blue-button:hover {
     background-color: #68A2CA;
+    transition: .1s;
+    transition-property: background-color;
 }
 
 .blue-button:focus-visible {
@@ -786,10 +849,14 @@ outline: none;
 
 .brown-button {
     background-color: #756257;
+    transition: .1s;
+    transition-property: background-color;
 }
 
 .brown-button:hover {
     background-color: #615048;
+    transition: .1s;
+    transition-property: background-color;
 }
 
 .brown-button:active {
